@@ -174,7 +174,7 @@ pageEncoding="UTF-8"%>
 
       window.operateEvents = {
         "click .button": function (e, value, row, index) {
-          window.location.href = "/emp_edit_all.jsp?id=" + row.emp_no;
+          window.location.href = "./emp_edit_all.jsp?id=" + row.emp_no;
         },
       };
     </script>
