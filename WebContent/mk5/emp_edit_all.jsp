@@ -506,7 +506,7 @@ pageEncoding="UTF-8"%>
           Object.entries(loadUser[0]).map((val) => {
             // 필터링에서 나온 값을 인풋value로 삽입
             console.log(val[0]);
-            const id = document.querySelector(`#${val[0]}`);
+            let id = document.getElementById(val[0]);
             if (id === null) {
               id.value = "";
             } else if (id === emp_photo) {
