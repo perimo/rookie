@@ -163,7 +163,6 @@ pageEncoding="UTF-8"%>
 
     <script>
       var $table = $("#table");
-
       function operateFormatter(value, row) {
         return [
           '<a class="button" href="javascript:void(0)" title="button">',
@@ -171,10 +170,13 @@ pageEncoding="UTF-8"%>
           "</a>  ",
         ].join("");
       }
-
       window.operateEvents = {
         "click .button": function (e, value, row, index) {
+<<<<<<< HEAD
           window.location.href = "/emp_edit_all.jsp?id=" + row.emp_no;
+=======
+          window.location.href = "./emp_edit_all.jsp?id=" + row.emp_no;
+>>>>>>> refs/heads/minkyu
         },
       };
     </script>
@@ -187,4 +189,8 @@ pageEncoding="UTF-8"%>
     <script src="../common/scripts.js"></script>
     <!-- 버거 메뉴 활성화 -->
   </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> refs/heads/minkyu
