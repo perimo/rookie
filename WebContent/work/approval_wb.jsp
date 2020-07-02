@@ -26,8 +26,8 @@ pageEncoding="UTF-8"%>
    <div id="layoutSidenav_content">
 		<main id="input_div">
 			<div id="frame_div" style="border: 1px solid black;">
-				<div id="page_title" style="border: 1px solid red; margin: 10px 30px;"><h2>휴지통</h2></div>
-				<div id="page_contents" style="max-width: 1730px; border: 1px solid yellow; margin: 50px 50px;">
+				<div id="page_title" style="border-bottom: 2px solid gray; margin: 50px 30px;"><h2>휴지통</h2></div>
+				<div id="page_contents" style="max-width: 1730px; margin: 10px 100px;">
      			<!-- 컨텐츠 들어갈내용 시작-->
 
 				<div class="toolbar">
@@ -35,20 +35,19 @@ pageEncoding="UTF-8"%>
 					<button id="restore" class="btn btn-success">복구</button>
 				</div>
 				<!-- ========================= 휴지통 테이블 ========================== -->
-				<table id="table" data-toolbar=".toolbar" data-show-columns="true"
-					data-pagination="true" data-search="true"
+				<table id="table" data-toolbar=".toolbar"
+					
 					data-advanced-search="true"
 					data-select-item-name="selectItemName" data-url="../juno/member2.json">
 					<thead>
 						<tr>
 							<th data-field="state" data-checkbox="true"></th>
-							<th data-field="app_no" data-sortable="true"
-								data-align="center" data-width="80">번호</th>
-							<th data-field="app_name" data-sortable="true">양식</th>
-							<th data-field="app_write" data-sortable="true">이름</th>
-							<th data-field="app_print" data-sortable="true">상태</th>
+							<th data-field="app_no">번호</th>
+							<th data-field="app_name">양식</th>
+							<th data-field="app_write" >이름</th>
+							<th data-field="app_print"> 상태</th>
 							<th data-field="operate" data-formatter="operateFormatter"
-								data-events="operateEvents" width="100" data-align="center">확인</th>
+								data-events="operateEvents" data-width="100" data-align="center">확인</th>
 						</tr>
 					</thead>
 				</table>
@@ -73,8 +72,9 @@ pageEncoding="UTF-8"%>
 
 	/* 테이블 버튼 구현 부분 */
 	function operateFormatter(value, row) {
-		return [ '<a class="button" href="javascript:void(0)" title="button">',
-				'<button style="font-size:15px">작성</button>', '</a>  ', ]
+		return ['<a class="button" href="javascript:void(0)" title="button">',
+	          '<button type="button" class="btn btn-info" style="border: 1px solid white; border-radius: 10px; font-size:12px" align="center">작성</button>',
+	          "</a>  ", ]
 				.join('')
 	}
 	/* 테이블 버튼 구현 부분  끝*/
@@ -92,7 +92,7 @@ pageEncoding="UTF-8"%>
 <!-- 탑메뉴 사용 -->
 <script src="../common/js/topNav.js"></script>
 <!-- 사이드 메뉴 사용 -->
-<script src="../common//js/sideNav.js"></script>
+<script src="../common//js/sideNav.js?ver=2"></script>
 <!-- 버거 메뉴 활성화 -->
 <script src="../common/scripts.js"></script>
 </body>

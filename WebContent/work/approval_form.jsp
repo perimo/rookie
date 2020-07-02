@@ -26,8 +26,8 @@ pageEncoding="UTF-8"%>
    <div id="layoutSidenav_content">
 		<main id="input_div">
 			<div id="frame_div" style="border: 1px solid black;">
-				<div id="page_title" style="border: 1px solid red; margin: 10px 30px;"><h2>신청서 양식</h2></div>
-				<div id="page_contents" style="max-width: 1730px; border: 1px solid yellow; margin: 50px 50px;">
+				<div id="page_title" style="border-bottom: 2px solid gray; margin: 50px 30px;"><h2>신청서 양식</h2></div>
+				<div id="page_contents" style="max-width: 1730px; margin: 10px 100px;">
      			<!-- 컨텐츠 들어갈내용 시작-->
 
 					<!-- 결재양식 테이블 시작 -->
@@ -38,10 +38,10 @@ pageEncoding="UTF-8"%>
 							<thead class="thead-light">
 								<tr>
 									<th data-field="app_no" data-align="center"
-										data-sortable="true" data-width="80">번호</th>
+										data-sortable="true" data-width="100">번호</th>
 									<th data-field="app_name" data-align="center">제목</th>
 									<th data-field="operate" data-formatter="operateFormatter"
-										data-events="operateEvents" width="100" data-align="center">작성</th>
+										data-events="operateEvents" data-width="100px" data-align="center" >작성</th>
 								</tr>
 							</thead>
 						</table>
@@ -68,8 +68,9 @@ pageEncoding="UTF-8"%>
 
 	/* 테이블 버튼 구현 부분 */
 	function operateFormatter(value, row) {
-		return [ '<a class="button" href="javascript:void(0)" title="button">',
-				'<button style="font-size:15px">작성</button>', '</a>  ', ]
+		return [  '<a class="button" href="javascript:void(0)" title="button">',
+	          '<button type="button" class="btn btn-info" style="border: 1px solid white; border-radius: 10px; font-size:15px" align="center">작성</button>',
+	          "</a>  ", ]
 				.join('')
 	}
 	/* 테이블 버튼 구현 부분  끝*/
@@ -87,7 +88,7 @@ pageEncoding="UTF-8"%>
 <!-- 탑메뉴 사용 -->
 <script src="../common/js/topNav.js"></script>
 <!-- 사이드 메뉴 사용 -->
-<script src="../common/js/sideNav.js"></script>
+<script src="../common/js/sideNav.js?ver=2"></script>
 <!-- 버거 메뉴 활성화 -->
 <script src="../common/scripts.js"></script>
 </body>

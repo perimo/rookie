@@ -16,62 +16,72 @@ pageEncoding="UTF-8"%>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
 	<!--관리자 로그에 필요한 코드 끝   =================================================================================-->
 	
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 	<title>2RP PROGRAM</title>
 
 <script type="text/javascript">
+	var emp_no = null;
 	function emp_list_on(){
 		$.ajax({
 			url : "./emp_list_on.jsp",
 			success : function(data) {
 				alert("data:" + data);
-				$("#emp_list_on").html(data);
+				$("#emp_list").html(data);
+			}
+		});
+	}
+	function emp_list_off(){
+		$.ajax({
+			url : "./emp_list_off.jsp",
+			success : function(data) {
+				alert("data:" + data);
+				$("#emp_list").html(data);
 			}
 		});
 	}	
+  	function emp_insert_new(){
+		//alert("emp_no: "+emp_no);
+		location.href="emp_insert_new.jsp"
+	}	 
 </script>
-
 </head>
 <body class="sb-nav-fixed">
+
 	<nav id="topNav"></nav>
 	<div id="layoutSidenav">
 		<div id="layoutSidenav_nav"></div>
 		<div id="layoutSidenav_content">
 			<main id="input_div">
 				<div id="frame_div" style="border: 1px solid black;">
-					<div id="page_title" style="border: 1px solid red; margin: 10px 30px;">
+					<div id="page_title" style="border-bottom: 2px solid gray; margin: 50px 30px;">
 						<h2>사원관리</h2>
 					</div>
-					<div id="page_contents" style="max-width: 1730px; border: 1px solid yellow; margin: 50px 50px;">
+					<div id="page_contents" style="max-width: 1730px; margin: 10px 100px;">
 						<!-- 컨텐츠 들어갈내용 시작-->
 
-						<button type="button" class="btn btn-info float-left" style="border: 3px solid white; border-radius: 10px; margin: 5px;" onclick="emp_list_on()">재직 사원조회</button>
-						<button type="button" class="btn btn-info float-left" style="border: 3px solid white; border-radius: 10px; margin: 5px;" onclick="location.href='./emp_list_off.jsp'">퇴직 사원조회</button>
-						<button type="button" class="btn btn-info float-left" style="border: 3px solid white; border-radius: 10px; margin: 5px;" onclick="location.href='./emp_insert_new.jsp'">신규 사원등록</button>
-
-						<!-- 					
-						<table id="table" 
-							   data-toggle="table" 
-							   class="table table-hover"
-							   data-search="true" 
-							   data-toggle="table" 
-							   data-pagination="true"
-							   data-url="./jsonEmpList.json">
-							<thead class="thead-light">
-								<tr>
-									<th data-field="emp_no">사원번호</th>
-									<th data-field="emp_name">사원이름</th>
-									<th data-field="emp_resnum">부서</th>
-									<th data-field="emp_position">직급</th>
-									<th data-field="emp_email">이메일</th>
-									<th data-field="emp_phone">핸드폰</th>
-									<th data-field="emp_state">근무상태</th>
-									<th data-field="operate" data-formatter="operateFormatter" data-events="operateEvents" width="300">정보수정</th>
-								</tr>
-							</thead>
-						</table> 
-						-->
+						<button type="button" class="btn btn-info float-left" style="border: 3px solid white; border-radius: 10px; margin: 5px;" 
+								onclick="emp_list_on()">재직 사원조회</button>
+						<button type="button" class="btn btn-info float-left" style="border: 3px solid white; border-radius: 10px; margin: 5px;" 
+								onclick="emp_list_off()">퇴직 사원조회</button>
+						<button type="button" class="btn btn-info float-left" style="border: 3px solid white; border-radius: 10px; margin: 5px;" 
+								onclick="emp_insert_new()">신규 사원등록</button>
 						
-						<div id="emp_list_on"></div>
+						<div id="emp_list">
+							<table class="table">
+								<thead class="thead-light">
+									<tr>
+										<th>사원번호</th>
+										<th>사원이름</th>
+										<th>부서</th>
+										<th>직급</th>
+										<th>이메일</th>
+										<th>핸드폰</th>
+										<th>근무상태</th>
+										<th>정보수정</th>
+									</tr>
+								</thead>
+							</table> 
+						</div>
 						
 						<!-- 컨텐츠 들어갈내용 끝   -->
 					</div>
@@ -80,12 +90,9 @@ pageEncoding="UTF-8"%>
 		</div>
 	</div>
 	<!-- 슬라이드바 사용할때 필요 -->
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	<script src="https://unpkg.com/bootstrap-table@1.16.0/dist/bootstrap-table.min.js"></script>
-
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
 	<!-- 수정버튼 클릭햇을때 테이블 정보불러오기 -->
 <!-- 
@@ -119,7 +126,7 @@ pageEncoding="UTF-8"%>
       }
       window.operateEvents = {
         "click .button": function (e, value, row, index) {
-          window.location.href = "/emp_edit_all.jsp?id=" + row.emp_no;
+          window.location.href = "workSelectEmp.erp?emp_no=" + row.EMP_NO;
         },
       };
     </script>
@@ -128,7 +135,7 @@ pageEncoding="UTF-8"%>
 	<!-- 탑메뉴 사용 -->
 	<script src="../common/js/topNav.js"></script>
 	<!-- 사이드 메뉴 사용 -->
-	<script src="../common//js/sideNav.js"></script>
+	<script src="../common//js/sideNav.js?ver=2"></script>
 
 	<script src="../common/scripts.js"></script>
 	<!-- 버거 메뉴 활성화 -->
